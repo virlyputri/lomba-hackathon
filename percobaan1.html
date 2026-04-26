@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AegisAI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-[#0B1220] text-white">
+    <div class="flex h-screen">
+      <!-- MAIN -->
+      <div class="flex-1 flex flex-col">
+        <!-- TOPBAR -->
+        <header
+          class="flex items-center justify-between bg-[#0B1220] px-6 py-4"
+        >
+          <!-- LEFT: Logo -->
+          <div class="text-2xl font-bold">AegisAI</div>
+
+          <!-- RIGHT: Menu -->
+          <nav class="flex items-center gap-4 text-sm">
+            <button
+              onclick="showPage(event, 'dashboard')"
+              class="menu-item px-4 py-2 rounded-lg text-white transition duration-300"
+            >
+              Dashboard
+            </button>
+
+            <button
+              onclick="showPage(event, 'input')"
+              class="menu-item px-4 py-2 rounded-lg text-white transition duration-300"
+            >
+              Input Data
+            </button>
+
+            <button
+              onclick="showPage(event, 'history')"
+              class="menu-item px-4 py-2 rounded-lg text-white transition duration-300"
+            >
+              History
+            </button>
+
+            <button
+              onclick="showPage(event, 'quality')"
+              class="menu-item px-4 py-2 rounded-lg text-white transition duration-300"
+            >
+              Data Quality
+            </button>
+
+            <button
+              onclick="showPage(event, 'settings')"
+              class="menu-item px-4 py-2 rounded-lg text-white transition duration-300"
+            >
+              Settings
+            </button>
+          </nav>
+        </header>
+
+  <!-- FORM -->
+  <div class="w-full max-w-xl mx-auto space-y-6">
+
+    <!-- TRUCK INFORMATION -->
+    <div class="bg-white rounded-xl p-5">
+      <h3 class="font-semibold text-black mb-4 flex items-center gap-2">
+        🚚 Truck Information
+      </h3>
+
+      <div class="space-y-3">
+        <div>
+          <label class="text-black font-medium">Truck ID</label>
+          <input type="text"
+            class="w-full mt-1 p-2 rounded-md bg-[#D1D5DB] focus:outline-none focus:ring-2 focus:ring-black-500" />
+        </div>
+
+        <div>
+          <label class="text-black font-medium">Odometer (km)</label>
+          <input type="text"
+            class="w-full mt-1 p-2 rounded-md bg-[#D1D5DB] focus:outline-none focus:ring-2 focus:ring-black-500" />
+        </div>
+      </div>
+    </div>
+
+    <!-- MAINTENANCE DETAILS -->
+    <div class="bg-white rounded-xl p-5">
+      <h3 class="font-semibold text-black mb-4 flex items-center gap-2">
+        🔧 Maintenance Details
+      </h3>
+
+      <div class="space-y-3">
+        <div>
+          <label class="text-black font-medium">Maintenance Date</label>
+          <input type="text"
+            class="w-full mt-1 p-2 rounded-md bg-[#D1D5DB] focus:outline-none focus:ring-2 focus:ring-black-500" />
+        </div>
+
+        <div>
+          <label class="text-black font-medium">Maintenance Type</label>
+          <input type="text"
+            class="w-full mt-1 p-2 rounded-md bg-[#D1D5DB] focus:outline-none focus:ring-2 focus:ring-black-500" />
+        </div>
+
+        <div>
+          <label class="text-black font-medium">Service Description</label>
+          <input type="text"
+            class="w-full mt-1 p-2 rounded-md bg-[#D1D5DB] focus:outline-none focus:ring-2 focus:ring-black-500" />
+        </div>
+      </div>
+    </div>
+
+    <!-- USAGE METRICS -->
+    <div class="bg-white rounded-xl p-5">
+      <h3 class="font-semibold text-black mb-4 flex items-center gap-2">
+        📊 Usage Metrics
+      </h3>
+
+      <div class="space-y-3">
+        <div>
+          <label class="text-black font-medium">Odometer (km)</label>
+          <input type="text"
+            class="w-full mt-1 p-2 rounded-md bg-[#D1D5DB] focus:outline-none focus:ring-2 focus:ring-black-500" />
+        </div>
+
+        <div>
+          <label class="text-black font-medium">Maintenance Working Hours</label>
+          <input type="text"
+            class="w-full mt-1 p-2 rounded-md bg-[#D1D5DB] focus:outline-none focus:ring-2 focus:ring-black-500" />
+        </div>
+
+        <div>
+          <label class="text-black font-medium">Maintenance Downtime (hours)</label>
+          <input type="text"
+            class="w-full mt-1 p-2 rounded-md bg-[#D1D5DB] focus:outline-none focus:ring-2 focus:ring-black-500" />
+        </div>
+      </div>
+    </div>
+
+    <!-- COST INFORMATION -->
+    <div class="bg-white rounded-xl p-5">
+      <h3 class="font-semibold text-black mb-4 flex items-center gap-2">
+        💰 Cost Information
+      </h3>
+
+      <div class="space-y-3">
+        <div>
+          <label class="text-black font-medium">Maintenance Cost</label>
+          <input type="text"
+            class="w-full mt-1 p-2 rounded-md bg-[#D1D5DB] focus:outline-none focus:ring-2 focus:ring-black-500" />
+        </div>
+
+        <div>
+          <label class="text-black font-medium">Spare Parts Cost</label>
+          <input type="text"
+            class="w-full mt-1 p-2 rounded-md bg-[#D1D5DB] focus:outline-none focus:ring-2 focus:ring-black-500" />
+        </div>
+      </div>
+    </div>
+
+    <!-- SUBMIT BUTTON -->
+    <button onclick="submitData()"
+      class="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition">
+      Submit Data
+    </button>
+
+    <!-- RESULT -->
+    <div id="resultBox" class="bg-white rounded-xl p-5 hidden">
+      <h3 class="text-black font-semibold mb-3">Submitted Result</h3>
+
+      <p class="text-black text-sm" id="resultText"></p>
+    </div>
+
+        <script>
+    function submitData() {
+
+      // ambil semua input
+      const inputs = document.querySelectorAll("input");
+
+      let result = "";
+
+      inputs.forEach((input, index) => {
+        result += `Field ${index + 1}: ${input.value} <br>`;
+      });
+
+      // tampilkan hasil
+      document.getElementById("resultBox").classList.remove("hidden");
+      document.getElementById("resultText").innerHTML = result;
+    }
+    </script>
+
+  </div>
+
+</body>
+</html>
