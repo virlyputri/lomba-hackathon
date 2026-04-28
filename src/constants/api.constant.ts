@@ -1,1 +1,1 @@
-export const BASE_API_URL = 'https://aegis-api.izuli.my.id';
+export const BASE_API_URL = 'https://aegisai-api.izuli.my.id';
