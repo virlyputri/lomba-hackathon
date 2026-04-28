@@ -1,1 +1,1 @@
-export const BASE_API_URL = 'http://localhost:3005';
+export const BASE_API_URL = 'https://aegis-api.izuli.my.id';
