@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom';
 import MainLayout from '@/layouts/MainLayout';
 import Form from './pages/Form';
+import History from './pages/History';
 import ErrorPage from './pages/ErrorPage';
 
 const router = createBrowserRouter([
@@ -23,19 +24,19 @@ const router = createBrowserRouter([
       },
       {
         path: 'dashboard',
-        element: <Navigate to="/form" replace />
+        element: <Navigate to="#" replace />
       },
       {
         path: 'history',
-        element: <Navigate to="/form" replace />
+        element: <History />
       },
       {
         path: 'quality',
-        element: <Navigate to="/form" replace />
+        element: <Navigate to="#" replace />
       },
       {
         path: 'settings',
-        element: <Navigate to="/form" replace />
+        element: <Navigate to="#" replace />
       }
     ]
   }

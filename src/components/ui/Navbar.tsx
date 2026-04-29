@@ -22,11 +22,11 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navItems = [
-    { label: 'Dashboard', path: '/' },
-    { label: 'Input Data', path: '/form' },
+    { label: 'Dashboard', path: '#' },
+    { label: 'Form', path: '/form' },
     { label: 'History', path: '/history' },
-    { label: 'Data Quality', path: '/quality' },
-    { label: 'Settings', path: '/settings' }
+    { label: 'Data Quality', path: '#' },
+    { label: 'Settings', path: '#' }
   ];
 
   const handleDrawerToggle = () => {
