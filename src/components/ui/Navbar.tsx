@@ -23,7 +23,7 @@ const Navbar = () => {
 
   const navItems = [
     { label: 'Dashboard', path: '#' },
-    { label: 'Input Data', path: '/form' },
+    { label: 'Form', path: '/form' },
     { label: 'History', path: '/history' },
     { label: 'Data Quality', path: '#' },
     { label: 'Settings', path: '#' }

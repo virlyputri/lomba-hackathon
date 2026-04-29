@@ -85,6 +85,8 @@ function Form() {
     fetchData();
   }, [showToast]);
 
+  const today = new Date().toISOString().split('T')[0];
+
   const formatNumeric = (value: string) => {
     if (!value) return '';
 
@@ -141,6 +143,11 @@ function Form() {
 
     if (!isAllFilled) {
       showToast('Fill All Required Fields', 'error');
+      return;
+    }
+
+    if (formData.maintenanceDate > today) {
+      showToast('Maintenance Date cannot be in the future', 'error');
       return;
     }
 
@@ -274,6 +281,7 @@ function Form() {
                   value={formData.maintenanceDate}
                   onChange={handleInputChange}
                   sx={filledInputStyle}
+                  inputProps={{ max: today }}
                 />
                 {submitted && !formData.maintenanceDate && (
                   <Typography
@@ -281,6 +289,14 @@ function Form() {
                     sx={{ color: 'error.main', mt: 0.5, ml: 1.5 }}
                   >
                     Maintenance Date is required
+                  </Typography>
+                )}
+                {formData.maintenanceDate > today && (
+                  <Typography
+                    variant="caption"
+                    sx={{ color: 'error.main', mt: 0.5, ml: 1.5 }}
+                  >
+                    Maintenance Date cannot be in the future
                   </Typography>
                 )}
               </FormControl>
