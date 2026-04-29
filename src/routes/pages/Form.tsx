@@ -164,13 +164,24 @@ function Form() {
         downtimeHours: parseFloat(formData.downtime.replace(/,/g, '') || '0')
       };
 
-      await apiService.postMaintenanceData(payload);
-      showToast('Form Submitted Successfully!', 'success');
-      setFormData(initialFormState);
-      setSubmitted(false);
-    } catch (error) {
-      showToast('Failed to Submit Form', 'error');
-      console.error('Submission Error:', error);
+      const response = await apiService.postMaintenanceData(payload);
+      const apiMessage = response?.message || 'Form Submitted Successfully!';
+
+      const isAnomaly = response?.data?.is_anomaly || false;
+      const toastType = isAnomaly ? 'warning' : 'success';
+
+      showToast(apiMessage, toastType);
+
+      if (!isAnomaly) {
+        setFormData(initialFormState);
+        setSubmitted(false);
+      }
+    } catch (err: unknown) {
+      const errorMessage =
+        (err as { response?: { data?: { message?: string } } }).response?.data
+          ?.message || 'Failed to Submit Form';
+      showToast(errorMessage, 'error');
+      console.error('Submission Error:', err);
     } finally {
       setLoading(false);
     }
