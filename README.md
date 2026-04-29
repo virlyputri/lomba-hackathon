@@ -10,7 +10,7 @@
   <p align="center">
     Digital form for logistic maintenance with AI data automation
     <br />
-    <a href="https://aegisai.netlify.app"><strong>View Demo »</strong></a>
+    <a href="https://aegiss-ai.netlify.app"><strong>View Demo »</strong></a>
     <br />
     <br />
   </p>
